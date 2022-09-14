@@ -12,7 +12,7 @@ namespace Charger.Domain.Entities {
         public DateTime CreatedDate { get; set; }
 
         [Column("updated_date")]
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 
 }

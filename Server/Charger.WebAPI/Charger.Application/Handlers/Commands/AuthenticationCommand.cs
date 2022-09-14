@@ -1,4 +1,5 @@
-﻿using Charger.Application.Common.Interfaces;
+﻿using Charger.Application.Common;
+using Charger.Application.Common.Interfaces;
 using Charger.Application.Contracts.Commands;
 using Charger.Application.Contracts.Queries;
 using Charger.Domain.Entities;
@@ -21,10 +22,15 @@ namespace Charger.Application.Handlers.Commands {
             var accountAlreadyExists = await _applicationDbContext.Accounts.FirstOrDefaultAsync(a => a.Username == requestCreateAccount.Username);
 
             if (accountAlreadyExists != null) {
-                return "Usernamed is already used.";
+                return "Username is already used.";
             }
 
-            var accountEntity = requestCreateAccount.Adapt<AccountEntity>();
+            var accountEntity = new AccountEntity() {
+                Username = requestCreateAccount.Username,
+                Password = Utils.CreateSHA512(requestCreateAccount.Password),
+                Role = "",
+            };
+
             _applicationDbContext.Accounts.Add(accountEntity);
             bool success = await _applicationDbContext.SaveChangesAsync() != 0;
 

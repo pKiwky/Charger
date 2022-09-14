@@ -12,7 +12,7 @@ namespace Charger.Application {
             services.AddScoped<IStationCommand, StationCommand>();
 
             services.AddScoped<IAuthenticationCommand, AuthenticationCommand>();
-            //services.AddScoped<IAuthenticationQuery, AuthenticationQuery>();
+            services.AddScoped<IAuthenticationQuery, AuthenticationQuery>();
 
             services.AddScoped<IJwtQueryService, JwtQueryService>();
 

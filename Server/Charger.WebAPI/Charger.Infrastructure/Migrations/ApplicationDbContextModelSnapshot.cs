@@ -35,7 +35,12 @@ namespace Charger.Infrastructure.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("password");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("role");
+
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("updated_date");
 

@@ -8,6 +8,9 @@ namespace Charger.Domain.Entities {
 
         [Column("password")]
         public string Password { get; set; }
+
+        [Column("role")]
+        public string Role { get; set; }
     }
 
 }

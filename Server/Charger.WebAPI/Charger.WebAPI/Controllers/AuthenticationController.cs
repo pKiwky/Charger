@@ -8,25 +8,24 @@ namespace Charger.WebAPI.Controllers {
 
     public class AuthenticationController : ApiController {
         private readonly IAuthenticationCommand _authenticationCommand;
-        //private readonly IAuthenticationQuery _authenticationQuery;
+        private readonly IAuthenticationQuery _authenticationQuery;
 
-        public AuthenticationController(IAuthenticationCommand authenticationCommand) {
+        public AuthenticationController(IAuthenticationCommand authenticationCommand, IAuthenticationQuery authenticationQuery) {
             _authenticationCommand = authenticationCommand;
-            //_authenticationQuery = authenticationQuery;
+            _authenticationQuery = authenticationQuery;
         }
 
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody] RequestLoginModel requestLoginModel) {
+            string token = await _authenticationQuery.LoginIfUserExists(requestLoginModel);
 
-        //[HttpPost]
-        //[Route("login")]
-        //public async Task<IActionResult> Login([FromBody] RequestLoginModel requestLoginModel) {
-        //    string token = await _authenticationQuery.LoginIfUserExists(requestLoginModel);
+            if (string.IsNullOrEmpty(token)) {
+                return NotFound();
+            }
 
-        //    if (string.IsNullOrEmpty(token)) {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(token);
-        //}
+            return Ok(token);
+        }
 
         [HttpPost]
         [Route("register")]
