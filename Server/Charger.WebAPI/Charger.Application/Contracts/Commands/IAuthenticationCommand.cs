@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Charger.Domain.Models.Request.Commands;
 
 namespace Charger.Application.Contracts.Commands {
 
     public interface IAuthenticationCommand {
-        Task<string> LoginIfUserExists(string username, string password);
+        Task<string> Register(RequestRegisterModel requestCreateAccount);
     }
 
 }

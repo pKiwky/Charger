@@ -41,3 +41,10 @@ C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\ne
 C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\net6.0\Charger.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Mapster.dll
 C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Mapster.Core.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

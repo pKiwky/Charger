@@ -6,6 +6,7 @@ namespace Charger.Infrastructure {
 
     public class ApplicationDbContext : DbContext, IApplicationDbContext {
         public DbSet<StationEntity> Stations { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
     }
