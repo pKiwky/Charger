@@ -1,0 +1,12 @@
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\bin\Debug\net6.0\Charger.Domain.deps.json
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\bin\Debug\net6.0\Charger.Domain.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\bin\Debug\net6.0\Charger.Domain.pdb
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.csproj.AssemblyReference.cache
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.AssemblyInfoInputs.cache
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.AssemblyInfo.cs
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\refint\Charger.Domain.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\Charger.Domain.pdb
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.Domain\obj\Debug\net6.0\ref\Charger.Domain.dll

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YEoJBaHRyiuXt7Lih0lnkCSJ6vI/Vqpn1VTpkpZqxNw=",
+  "Source": "Charger.WebAPI",
+  "BasePath": "_content/Charger.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
