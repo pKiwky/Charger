@@ -3,3 +3,15 @@
     <app-station-card [station]="station"></app-station-card>
   </div>
 </div>
+
+<ul class="pagination">
+  <li [ngClass]="{disabled:currentPage === 1}" class="page-item previous-item">
+    <a (click)="setPage(currentPage - 1)" class="page-link">Previous</a>
+  </li>
+  <li class="page-item number-item">
+    <a (click)="setPage(currentPage)" class="page-link">{{currentPage}}</a>
+  </li>
+  <li [ngClass]="{disabled:currentPage === lastPage}" class="page-item next-item">
+    <a (click)="setPage(currentPage + 1)" class="page-link">Next</a>
+  </li>
+</ul>

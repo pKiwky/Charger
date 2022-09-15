@@ -1,13 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPaginatedResult } from '../interfaces/paginated-result.interface';
+import { IStation } from '../interfaces/station.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StationService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  getAllStations() {
-    return this.httpClient.get('https://jsonplaceholder.typicode.com/comments');
+  create(station: IStation) {
+    return "";
+  }
+
+  getPaginated(pageNumber: number, pageSize: number) {
+    return this.httpClient.get<IPaginatedResult>(
+      `https://localhost:7214/api/station/GetPaginated/${pageNumber}/${pageSize}`
+    );
   }
 }

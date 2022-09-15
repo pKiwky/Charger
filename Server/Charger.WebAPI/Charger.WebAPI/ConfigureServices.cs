@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -11,18 +12,18 @@ namespace Charger.WebAPI {
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(o => {
+                o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters {
                     ValidIssuer = configuration["Jwt:Issuer"],
                     ValidAudience = configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey
                     (Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
                     ValidateLifetime = false,
-                    ValidateIssuerSigningKey = true
+                    ValidateIssuerSigningKey = false
                 };
             });
-
             services.AddAuthorization();
 
             return services;

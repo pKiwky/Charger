@@ -18,13 +18,13 @@ namespace Charger.WebAPI.Controllers {
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] RequestLoginModel requestLoginModel) {
-            string token = await _authenticationQuery.LoginIfUserExists(requestLoginModel);
+            var user = await _authenticationQuery.LoginIfUserExists(requestLoginModel);
 
-            if (string.IsNullOrEmpty(token)) {
+            if (user == null) {
                 return NotFound();
             }
 
-            return Ok(token);
+            return Ok(user);
         }
 
         [HttpPost]

@@ -29,6 +29,7 @@ namespace Charger.Application.Handlers.Commands {
                 Username = requestCreateAccount.Username,
                 Password = Utils.CreateSHA512(requestCreateAccount.Password),
                 Role = "",
+                CreatedDate = DateTime.Now
             };
 
             _applicationDbContext.Accounts.Add(accountEntity);

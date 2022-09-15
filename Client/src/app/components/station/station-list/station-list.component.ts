@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter, Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { StationService } from 'src/app/services/station.service';
 
 @Component({
@@ -7,13 +8,32 @@ import { StationService } from 'src/app/services/station.service';
   styleUrls: ['./station-list.component.scss'],
 })
 export class StationListComponent implements OnInit {
-  stations: any;
+  @Input() pageSize: number = 16;
+  @Output() changePage = new EventEmitter<any>(true);
 
-  constructor(private stationService: StationService) {}
+  stations: any;
+  currentPage: number = 1;
+  lastPage: number = 0;
+
+  constructor(
+    private stationService: StationService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.stationService.getAllStations().subscribe(data => {
-      this.stations = data;
-    });
+    this.setPage(1);
+  }
+
+  setPage(pageNumber: number): void {
+    this.currentPage = pageNumber;
+
+    this.stationService
+      .getPaginated(this.currentPage, this.pageSize)
+      .subscribe((response) => {
+        this.stations = response.results;
+        this.lastPage = response.lastPage;
+
+        this.changePage.emit(this.stations);
+      });
   }
 }

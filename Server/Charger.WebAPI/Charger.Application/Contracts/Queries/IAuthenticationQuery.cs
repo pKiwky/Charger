@@ -1,10 +1,10 @@
-﻿using Charger.Domain.Models.Request.Commands;
-using Charger.Domain.Models.Request.Queries;
+﻿using Charger.Domain.Models.Request.Queries;
+using Charger.Domain.Models.Response.Queries;
 
 namespace Charger.Application.Contracts.Queries {
 
     public interface IAuthenticationQuery {
-        Task<string> LoginIfUserExists(RequestLoginModel requestLoginModel);
+        Task<ResponseLoginModel> LoginIfUserExists(RequestLoginModel requestLoginModel);
     }
 
 }

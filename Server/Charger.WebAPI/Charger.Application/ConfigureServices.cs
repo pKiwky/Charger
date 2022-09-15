@@ -10,6 +10,7 @@ namespace Charger.Application {
     public static class ConfigureServices {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration) {
             services.AddScoped<IStationCommand, StationCommand>();
+            services.AddScoped<IStationQuery, StationQuery>();
 
             services.AddScoped<IAuthenticationCommand, AuthenticationCommand>();
             services.AddScoped<IAuthenticationQuery, AuthenticationQuery>();

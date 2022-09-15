@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { StationListComponent } from './components/station/station-list/station-
 
 import { StationService } from './services/station.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { TokenInterceptorService } from './interceptors/token-interceptor.service';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +19,18 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     StationCardComponent,
     StationListComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
-    StationService
+    StationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
