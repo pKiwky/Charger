@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role', response.role);
 
         this.toastrServie.success('Successfully logged.');
-
         this.router.navigate(['/']);
       },
       error: (error) => {

@@ -18,13 +18,17 @@
     </ul>
 
     <ul class="navbar-nav">
-      <button type="button" class="btn btn-primary navbar-btn">
+      <button type="button" class="btn btn-primary navbar-btn" routerLink="/login" *ngIf="!this.isLoggedIn()">
         <span class="fa fa-sign-in"></span>
         Login
       </button>
-      <button type="button" class="btn btn-primary navbar-btn">
+      <button type="button" class="btn btn-primary navbar-btn" *ngIf="!this.isLoggedIn()">
         <span class="fa fa-user"></span>
         Register
+      </button>
+      <button type="button" class="btn btn-primary navbar-btn" (click)="onLogout()" *ngIf="this.isLoggedIn()">
+        <span class="fa fa-user"></span>
+        Logout
       </button>
     </ul>
   </div>
