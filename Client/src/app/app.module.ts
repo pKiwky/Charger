@@ -15,10 +15,13 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'stations', component: StationListComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -35,10 +38,12 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right'
-    })
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [
     StationService,
