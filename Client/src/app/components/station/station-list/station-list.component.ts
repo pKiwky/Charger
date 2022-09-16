@@ -1,12 +1,7 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ChangeDetectorRef,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IStation } from 'src/app/interfaces/station.interface';
 import { StationService } from 'src/app/services/station.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-station-list',
@@ -14,13 +9,16 @@ import { StationService } from 'src/app/services/station.service';
   styleUrls: ['./station-list.component.scss'],
 })
 export class StationListComponent implements OnInit {
-  @Input() pageSize: number = 4;
+  @Input() pageSize: number = 16;
 
   stations: any[];
   currentPage: number = 1;
   lastPage: number = 0;
 
-  constructor(private stationService: StationService) {}
+  constructor(
+    private stationService: StationService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit() {
     this.setPage(1);
@@ -44,20 +42,16 @@ export class StationListComponent implements OnInit {
       );
 
       // Delete last element from page. Go one page back.
-      if(this.stations.length == 0) {
+      if (this.stations.length == 0) {
         this.currentPage--;
         this.lastPage--;
 
-        if(this.currentPage < 1) {
+        if (this.currentPage < 1) {
           this.currentPage = 1;
         }
-        if(this.lastPage < 1) {
+        if (this.lastPage < 1) {
           this.lastPage = 1;
         }
-
-        console.log(this.currentPage);
-        console.log(this.lastPage);
-
       }
 
       this.stationService
@@ -66,6 +60,8 @@ export class StationListComponent implements OnInit {
           this.stations = response.results;
           this.lastPage = response.lastPage;
         });
+
+        this.toastrService.success("Station was successfully deleted.")
     });
   }
 }
