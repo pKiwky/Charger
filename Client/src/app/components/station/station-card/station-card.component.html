@@ -1,7 +1,19 @@
 <div class="card mb-3">
-  <!-- <div class="card-header"></div> -->
+  <div class="card-header">
+    <div style="float: right;">
+      <button type="button">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <button type="button">
+        <i class="fa fa-eye"></i>
+      </button>
+      <button type="button" (click)="deleteClicked()">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </div>
   <img class="card-img" src="https://chargerquest.com/wp-content/uploads/2021/05/blog-3-1.png">
   <div class="card-body">
-    <h6>{{station.city}}, {{station.street}}</h6>
+    <h4>{{station.city}}, {{station.street}}</h4>
   </div>
 </div>

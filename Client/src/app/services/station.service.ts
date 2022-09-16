@@ -18,4 +18,10 @@ export class StationService {
       `https://localhost:7214/api/station/GetPaginated/${pageNumber}/${pageSize}`
     );
   }
+
+  delete(id: number) {
+    return this.httpClient.delete<boolean>(
+      `https://localhost:7214/api/station/${id}`
+    );
+  }
 }

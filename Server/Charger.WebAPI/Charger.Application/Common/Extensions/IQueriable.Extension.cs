@@ -19,6 +19,10 @@ namespace Charger.Application.Common.Extensions {
             paginatedResult.LastPage = (int)Math.Ceiling((double)rowCount / pageSize);
             paginatedResult.DataCount = pageSize;
             paginatedResult.Results = await query.Skip(skip).Take(pageSize).ProjectToType<TOut>().ToListAsync();
+            
+            if(paginatedResult.LastPage == 0) {
+                paginatedResult.LastPage = 1;
+            }
 
             return paginatedResult;
         }

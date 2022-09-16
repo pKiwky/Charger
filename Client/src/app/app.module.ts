@@ -12,6 +12,13 @@ import { StationService } from './services/station.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 import { LoginComponent } from './components/auth/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'stations', component: StationListComponent },
+];
 
 @NgModule({
   declarations: [
@@ -20,9 +27,15 @@ import { LoginComponent } from './components/auth/login/login.component';
     StationCardComponent,
     StationListComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
+  ],
   providers: [
     StationService,
     {

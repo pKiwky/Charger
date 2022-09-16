@@ -5,29 +5,27 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Stations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">My cars</a>
-        </li>
-      </ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/stations" routerLinkActive="active">Stations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/cars" routerLinkActive="active">My cars</a>
+      </li>
+    </ul>
 
-      <ul class="navbar-nav">
-        <button type="button" class="btn btn-primary navbar-btn" (click)="showLogin()">
-          <span class="fa fa-sign-in"></span>
-          Login
-        </button>
-        <button type="button" class="btn btn-primary navbar-btn">
-          <span class="fa fa-user"></span>
-          Register
-        </button>
-      </ul>
-    <!-- </div> -->
+    <ul class="navbar-nav">
+      <button type="button" class="btn btn-primary navbar-btn">
+        <span class="fa fa-sign-in"></span>
+        Login
+      </button>
+      <button type="button" class="btn btn-primary navbar-btn">
+        <span class="fa fa-user"></span>
+        Register
+      </button>
+    </ul>
   </div>
 </nav>

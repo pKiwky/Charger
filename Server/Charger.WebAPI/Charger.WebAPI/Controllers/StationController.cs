@@ -29,6 +29,13 @@ namespace Charger.WebAPI.Controllers {
         public async Task<PaginatedResult<ResponseGetStation>> GetPaginated(int pageNumber, int pageSize) {
             return await _stationQuery.GetPaginated(pageNumber, pageSize);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<bool> Delete(int id) {
+            return await _stationCommand.Delete(id);
+        }
     }
 
 }

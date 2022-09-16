@@ -1,6 +1,6 @@
 <div class="row">
-  <div *ngFor="let station of stations" class="col-sm-3">
-    <app-station-card [station]="station"></app-station-card>
+  <div *ngFor="let station of stations" class="col-6 col-sm-4 col-md-3">
+    <app-station-card [station]="station" (deleteStation)="onDeleteStation(station)"></app-station-card>
   </div>
 </div>
 
