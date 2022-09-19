@@ -27,8 +27,7 @@ namespace Charger.Application.Handlers.Queries {
 
             return new ResponseLoginModel() {
                 Username = accountEntity.Username,
-                Token = _jwtQueryService.GetJwtToken(accountEntity.Id, accountEntity.Username, accountEntity.Role),
-                Role = accountEntity.Role
+                Token = _jwtQueryService.GetJwtToken(accountEntity.Id, accountEntity.Username, accountEntity.Role)
             };
         }
     }

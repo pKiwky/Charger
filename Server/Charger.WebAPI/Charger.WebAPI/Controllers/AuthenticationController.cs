@@ -1,5 +1,6 @@
 ﻿using Charger.Application.Contracts.Commands;
 using Charger.Application.Contracts.Queries;
+using Charger.Domain.Enums;
 using Charger.Domain.Models.Request.Commands;
 using Charger.Domain.Models.Request.Queries;
 using Microsoft.AspNetCore.Mvc;
@@ -30,13 +31,13 @@ namespace Charger.WebAPI.Controllers {
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RequestRegisterModel requestRegisterModel) {
-            string token = await _authenticationCommand.Register(requestRegisterModel);
+            var result = await _authenticationCommand.Register(requestRegisterModel);
 
-            if (string.IsNullOrEmpty(token)) {
-                return BadRequest();
+            if (result.RegisterResponse != ERegisterResponse.Success) {
+                return BadRequest(result.Data);
             }
 
-            return Ok(token);
+            return Ok(new { token = result.Data });
         }
     }
 

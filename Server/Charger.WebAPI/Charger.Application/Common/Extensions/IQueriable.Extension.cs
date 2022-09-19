@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Charger.Domain.Entities;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace Charger.Application.Common.Extensions {
             paginatedResult.CurrentPage = pageNumber;
             paginatedResult.LastPage = (int)Math.Ceiling((double)rowCount / pageSize);
             paginatedResult.DataCount = pageSize;
-            paginatedResult.Results = await query.Skip(skip).Take(pageSize).ProjectToType<TOut>().ToListAsync();
-            
-            if(paginatedResult.LastPage == 0) {
+            paginatedResult.Results = await query.Where(e => (e as Entity).Deleted == false).Skip(skip).Take(pageSize).ProjectToType<TOut>().ToListAsync();
+
+            if (paginatedResult.LastPage == 0) {
                 paginatedResult.LastPage = 1;
             }
 

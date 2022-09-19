@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('username', response.username);
-        localStorage.setItem('role', response.role);
 
         this.toastrServie.success('Successfully logged.');
         this.router.navigate(['/']);

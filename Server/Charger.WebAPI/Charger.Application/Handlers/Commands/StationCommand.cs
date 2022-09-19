@@ -31,7 +31,8 @@ namespace Charger.Application.Handlers.Commands {
                 throw new NotFoundException();
             }
 
-            _applicationDbContext.Stations.Remove(entity);
+            entity.Deleted = true;
+            
             return await _applicationDbContext.SaveChangesAsync() != 0;
         }
     }

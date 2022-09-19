@@ -9,8 +9,13 @@ import { IStation } from '../interfaces/station.interface';
 export class StationService {
   constructor(private httpClient: HttpClient) {}
 
-  create(station: IStation) {
-    return "";
+  create() {
+    return this.httpClient.post(`https://localhost:7214/api/Station`, {
+      city: 'string',
+      street: 'string',
+      latitude: 0,
+      longitude: 0,
+    });
   }
 
   getPaginated(pageNumber: number, pageSize: number) {

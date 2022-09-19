@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Charger.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220914143454_Account")]
-    partial class Account
+    [Migration("20220919065942_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,12 +32,21 @@ namespace Charger.Infrastructure.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_date");
 
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("deleted");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("password");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("role");
+
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("updated_date");
 
@@ -62,6 +71,10 @@ namespace Charger.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("city");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("deleted");
 
                     b.Property<double>("Latitude")
                         .HasColumnType("double")

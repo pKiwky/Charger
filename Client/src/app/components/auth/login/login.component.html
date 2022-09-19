@@ -10,7 +10,7 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label">Username</label>
-            <input type="email" class="form-control form-control-lg" formControlName="username" />
+            <input type="text" class="form-control form-control-lg" formControlName="username" />
           </div>
 
           <!-- Password input -->
@@ -19,7 +19,7 @@
             <input type="password" class="form-control form-control-lg" formControlName="password" />
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-lg btn-block">Sign in</button>
         </form>
       </div>
     </div>

@@ -2,6 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IStation } from 'src/app/interfaces/station.interface';
 import { StationService } from 'src/app/services/station.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/services/user.service';
+import { StationCreateComponent } from '../station-create/station-create.component';
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-station-list',
@@ -15,9 +22,14 @@ export class StationListComponent implements OnInit {
   currentPage: number = 1;
   lastPage: number = 0;
 
+  dialogConfig = new MatDialogConfig();
+  modalDialog: MatDialogRef<StationCreateComponent, any> | undefined;
+
   constructor(
     private stationService: StationService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    public userService: UserService,
+    public matDialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -61,7 +73,16 @@ export class StationListComponent implements OnInit {
           this.lastPage = response.lastPage;
         });
 
-        this.toastrService.success("Station was successfully deleted.")
+      this.toastrService.success('Station was successfully deleted.');
     });
+  }
+
+  onCreateStationModal() {
+    this.dialogConfig.id = 'app-station-create';
+    this.dialogConfig.width = '650px';
+    this.modalDialog = this.matDialog.open(
+      StationCreateComponent,
+      this.dialogConfig
+    );
   }
 }

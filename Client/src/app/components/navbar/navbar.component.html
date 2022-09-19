@@ -12,7 +12,7 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" routerLink="/stations" routerLinkActive="active">Stations</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="this.isLoggedIn()">
         <a class="nav-link active" aria-current="page" routerLink="/cars" routerLinkActive="active">My cars</a>
       </li>
     </ul>
@@ -22,7 +22,7 @@
         <span class="fa fa-sign-in"></span>
         Login
       </button>
-      <button type="button" class="btn btn-primary navbar-btn" *ngIf="!this.isLoggedIn()">
+      <button type="button" class="btn btn-primary navbar-btn" routerLink="/register" *ngIf="!this.isLoggedIn()">
         <span class="fa fa-user"></span>
         Register
       </button>
