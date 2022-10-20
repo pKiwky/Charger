@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-6 col-sm-4 col-md-3" *ngIf="userService.isAdmin">
-    <div class="add-station card mb-3">
+  <div class="col-6 col-sm-4 col-md-3" *ngIf="userService.isAdmin()">
+    <div class="add-item card mb-3">
       <div class="d-flex align-items-center">
         <button style="background-color: transparent; border: none;" (click)="onCreateStationModal()">
           <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/117/117885.png" alt="Card image cap">
@@ -10,7 +10,8 @@
   </div>
 
   <div *ngFor="let station of stations" class="col-6 col-sm-4 col-md-3">
-    <app-station-card [station]="station" (deleteStation)="onDeleteStation(station)"></app-station-card>
+    <app-station-card [station]="station" (deleteStation)="onDeleteStation(station)"
+      (infoStation)="onInfoStation(station)"></app-station-card>
   </div>
 </div>
 
@@ -21,7 +22,7 @@
   <li class="page-item number-item">
     <a (click)="setPage(currentPage)" class="page-link">{{currentPage}}</a>
   </li>
-  <li [ngClass]="{disabled:currentPage === lastPage}" class="page-item next-item">
+  <li [ngClass]="{disabled:currentPage >= lastPage}" class="page-item next-item">
     <a (click)="setPage(currentPage + 1)" class="page-link">Next</a>
   </li>
 </ul>

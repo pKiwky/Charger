@@ -7,7 +7,10 @@ namespace Charger.Domain.Entities {
         public string Username { get; set; }
 
         [Column("password")]
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
+
+        [Column("password_key")]
+        public byte[] PasswordKey { get; set; }
 
         [Column("role")]
         public string Role { get; set; }

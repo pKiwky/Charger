@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-6 col-sm-4 col-md-3" *ngIf="userService.isAuthenticated()">
+    <div class="add-item card mb-3">
+      <div class="d-flex align-items-center">
+        <button style="background-color: transparent; border: none;">
+          <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/117/117885.png" alt="Card image cap">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let car of cars" class="col-6 col-sm-4 col-md-3">
+    <div>{{car.model}}</div>
+  </div>
+</div>

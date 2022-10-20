@@ -9,6 +9,7 @@ import {
   MatDialogConfig,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { StationInfoComponent } from '../station-info/station-info.component';
 
 @Component({
   selector: 'app-station-list',
@@ -18,12 +19,13 @@ import {
 export class StationListComponent implements OnInit {
   @Input() pageSize: number = 16;
 
-  stations: any[];
+  stations: IStation[];
   currentPage: number = 1;
   lastPage: number = 0;
 
   dialogConfig = new MatDialogConfig();
-  modalDialog: MatDialogRef<StationCreateComponent, any> | undefined;
+  modalCreateStation: MatDialogRef<StationCreateComponent, any> | undefined;
+  modalInfoStation: MatDialogRef<StationInfoComponent, any> | undefined;
 
   constructor(
     private stationService: StationService,
@@ -80,8 +82,20 @@ export class StationListComponent implements OnInit {
   onCreateStationModal() {
     this.dialogConfig.id = 'app-station-create';
     this.dialogConfig.width = '650px';
-    this.modalDialog = this.matDialog.open(
+
+    this.modalCreateStation = this.matDialog.open(
       StationCreateComponent,
+      this.dialogConfig
+    );
+  }
+
+  onInfoStation(station: IStation) {
+    this.dialogConfig.id = 'app-station-info';
+    this.dialogConfig.width = '650px';
+    this.dialogConfig.data = station;
+
+    this.modalInfoStation = this.matDialog.open(
+      StationInfoComponent,
       this.dialogConfig
     );
   }

@@ -54,15 +54,48 @@ namespace Charger.Infrastructure.Migrations
                     table.PrimaryKey("PK_Stations", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Cars",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    model = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    account_id = table.Column<int>(type: "int", nullable: false),
+                    deleted = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    created_date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    updated_date = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cars", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Cars_Accounts_account_id",
+                        column: x => x.account_id,
+                        principalTable: "Accounts",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cars_account_id",
+                table: "Cars",
+                column: "account_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Accounts");
+                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Stations");
+
+            migrationBuilder.DropTable(
+                name: "Accounts");
         }
     }
 }

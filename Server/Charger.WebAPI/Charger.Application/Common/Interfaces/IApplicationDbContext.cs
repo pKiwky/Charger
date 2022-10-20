@@ -11,6 +11,7 @@ namespace Charger.Application.Common.Interfaces {
     public interface IApplicationDbContext {
         DbSet<AccountEntity> Accounts { get; set; }
         DbSet<StationEntity> Stations { get; set; }
+        DbSet<CarEntity> Cars { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

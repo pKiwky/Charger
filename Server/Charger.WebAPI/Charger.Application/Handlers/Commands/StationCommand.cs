@@ -19,7 +19,7 @@ namespace Charger.Application.Handlers.Commands {
             var entity = requestCreateStation.Adapt<StationEntity>();
 
             _applicationDbContext.Stations.Add(entity);
-            var result = await _applicationDbContext.SaveChangesAsync();
+            await _applicationDbContext.SaveChangesAsync();
 
             return entity.Id;
         }
@@ -32,7 +32,7 @@ namespace Charger.Application.Handlers.Commands {
             }
 
             entity.Deleted = true;
-            
+
             return await _applicationDbContext.SaveChangesAsync() != 0;
         }
     }

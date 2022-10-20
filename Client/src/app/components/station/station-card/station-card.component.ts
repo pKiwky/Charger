@@ -9,7 +9,9 @@ import { StationService } from 'src/app/services/station.service';
 })
 export class StationCardComponent implements OnInit {
   @Input() station: IStation;
+
   @Output() deleteStation = new EventEmitter<boolean>();
+  @Output() infoStation = new EventEmitter<boolean>();
 
   constructor(private stationService: StationService) {}
 
@@ -17,5 +19,9 @@ export class StationCardComponent implements OnInit {
 
   deleteClicked() {
     this.deleteStation.emit(true);
+  }
+
+  infoClicked() {
+    this.infoStation.emit(true);
   }
 }

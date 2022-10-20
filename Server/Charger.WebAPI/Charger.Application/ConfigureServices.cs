@@ -12,6 +12,9 @@ namespace Charger.Application {
             services.AddScoped<IStationCommand, StationCommand>();
             services.AddScoped<IStationQuery, StationQuery>();
 
+            services.AddScoped<ICarCommand, CarCommand>();
+            services.AddScoped<ICarQuery, CarQuery>();
+
             services.AddScoped<IAuthenticationCommand, AuthenticationCommand>();
             services.AddScoped<IAuthenticationQuery, AuthenticationQuery>();
 

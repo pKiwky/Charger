@@ -22,17 +22,24 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
 import { StationService } from './services/station.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { StationCreateComponent } from './components/station/station-create/station-create.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { StationInfoComponent } from './components/station/station-info/station-info.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
+import { CarCardComponent } from './components/car/car-card/car-card.component';
+import { CarResolver } from './resolvers/car.resolver';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'stations', component: StationListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'stations', component: StationListComponent },
+  {
+    path: 'cars',
+    component: CarListComponent,
+    canActivate: [AuthGuardService],
+    resolve: { cars: CarResolver },
+  },
 ];
-
-export function tokenGetter() {
-  return localStorage.getItem('access_token');
-}
 
 @NgModule({
   declarations: [
@@ -45,6 +52,9 @@ export function tokenGetter() {
     HomeComponent,
     RegisterComponent,
     StationCreateComponent,
+    StationInfoComponent,
+    CarListComponent,
+    CarCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,12 +70,13 @@ export function tokenGetter() {
     }),
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
+        tokenGetter: () => localStorage.getItem('access_token'),
       },
     }),
   ],
   providers: [
     StationService,
+    AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

@@ -32,7 +32,7 @@ namespace Charger.WebAPI.Controllers {
 
         [HttpDelete]
         [Route("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<bool> Delete(int id) {
             return await _stationCommand.Delete(id);
         }

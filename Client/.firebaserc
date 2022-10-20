@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "charger-36934"
+  },
+  "targets": {
+    "charger-36934": {
+      "hosting": {
+        "Client": [
+          "charger-36934"
+        ]
+      }
+    }
+  }
+}

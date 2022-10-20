@@ -5,11 +5,21 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private _jwtHelper: JwtHelperService) {}
+  constructor(private jwtHelper: JwtHelperService) {}
 
-  get isAdmin(): boolean {
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+
+    if (token && this.jwtHelper.isTokenExpired(token) == false) {
+      return true;
+    }
+
+    return false;
+  }
+
+  public isAdmin(): boolean {
     var token = localStorage.getItem('token');
-    const decodedToken = this._jwtHelper?.decodeToken(token!) || {};
+    const decodedToken = this.jwtHelper?.decodeToken(token!) || {};
     const role = decodedToken.role;
     return role === 'Admin';
   }

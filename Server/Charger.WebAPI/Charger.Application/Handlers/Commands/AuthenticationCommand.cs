@@ -8,6 +8,8 @@ using Charger.Domain.Models.Request.Commands;
 using Charger.Domain.Models.Response.Commands;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Charger.Application.Handlers.Commands {
 
@@ -30,9 +32,12 @@ namespace Charger.Application.Handlers.Commands {
                 };
             }
 
+            using var hmac = new HMACSHA512();
+
             var accountEntity = new AccountEntity() {
                 Username = requestCreateAccount.Username,
-                Password = Utils.CreateSHA512(requestCreateAccount.Password),
+                PasswordKey = hmac.Key,
+                Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(requestCreateAccount.Password)),
                 Role = "",
                 CreatedDate = DateTime.Now
             };

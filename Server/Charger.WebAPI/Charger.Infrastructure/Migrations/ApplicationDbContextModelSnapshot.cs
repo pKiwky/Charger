@@ -34,10 +34,15 @@ namespace Charger.Infrastructure.Migrations
                         .HasColumnType("tinyint(1)")
                         .HasColumnName("deleted");
 
-                    b.Property<string>("Password")
+                    b.Property<byte[]>("Password")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("longblob")
                         .HasColumnName("password");
+
+                    b.Property<byte[]>("PasswordKey")
+                        .IsRequired()
+                        .HasColumnType("longblob")
+                        .HasColumnName("password_key");
 
                     b.Property<string>("Role")
                         .IsRequired()
@@ -56,6 +61,41 @@ namespace Charger.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("Charger.Domain.Entities.CarEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int")
+                        .HasColumnName("account_id");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_date");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("deleted");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("model");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("updated_date");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("Charger.Domain.Entities.StationEntity", b =>
@@ -90,6 +130,17 @@ namespace Charger.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stations");
+                });
+
+            modelBuilder.Entity("Charger.Domain.Entities.CarEntity", b =>
+                {
+                    b.HasOne("Charger.Domain.Entities.AccountEntity", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
                 });
 #pragma warning restore 612, 618
         }

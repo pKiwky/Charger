@@ -8,6 +8,9 @@ namespace Charger.Domain.Entities {
 
         [Column("deleted")]
         public bool Deleted { get; set; }
+
+        // DeletedBy
+        // DeletedDate
     }
 
 }

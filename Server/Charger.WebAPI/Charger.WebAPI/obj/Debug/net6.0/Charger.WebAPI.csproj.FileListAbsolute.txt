@@ -98,3 +98,9 @@ C:\Users\Picua\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\ne
 C:\Users\Picua\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\net6.0\Charger.WebAPI.pdb
 C:\Users\Picua\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\net6.0\Charger.WebAPI.genruntimeconfig.cache
 C:\Users\Picua\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\obj\Debug\net6.0\ref\Charger.WebAPI.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Roweb\Desktop\Charger\Server\Charger.WebAPI\Charger.WebAPI\bin\Debug\net6.0\System.Web.Http.dll

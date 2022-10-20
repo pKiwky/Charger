@@ -26,6 +26,10 @@ namespace Charger.WebAPI {
             });
             services.AddAuthorization();
 
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+
             return services;
         }
     }
